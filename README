@@ -1,0 +1,1 @@
+Simple implementation of an XMLStreamParser to parse large XML files without killing memory by loading everything in to memory.
