@@ -31,6 +31,6 @@ public class Entry {
 
     @Override
     public String toString() {
-        return this.title;
+        return this.title + this.content;
     }
 }
