@@ -1,5 +1,6 @@
 package com.home.javaplayground;
 
+import com.home.javaplayground.models.IDoc;
 import com.home.javaplayground.models.SimpleWikiDoc;
 import com.home.javaplayground.services.SimpleWikiXmlParser;
 import com.home.javaplayground.services.SimpleWikiXmlParserException;
@@ -15,7 +16,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException, XMLStreamException, SimpleWikiXmlParserException {
 
         SimpleWikiXmlParser parser = new SimpleWikiXmlParser(args[0]);
-        SimpleWikiDoc doc;
+        SimpleWikiDoc<String> doc;
 
         while (parser.hasNext()) {
             doc = parser.getNextPage();
@@ -25,7 +26,7 @@ public class Main {
         parser.close();
     }
 
-    private static void printDocToConsole(SimpleWikiDoc doc) {
+    private static <T> void printDocToConsole(T doc) {
         if (doc != null)
             System.out.println(doc.toString());
     }

@@ -1,5 +1,6 @@
 package com.home.javaplayground.services;
 
+import com.home.javaplayground.models.IDoc;
 import com.home.javaplayground.models.SimpleWikiDoc;
 
 import javax.xml.stream.XMLInputFactory;
@@ -18,8 +19,8 @@ import java.util.List;
  */
 public class SimpleWikiXmlParser {
 
-    private static InputStream input;
-    private static XMLStreamReader reader;
+    private InputStream input;
+    private XMLStreamReader reader;
 
     public SimpleWikiXmlParser(String filePath) throws FileNotFoundException, XMLStreamException {
         input = new BufferedInputStream(new FileInputStream(filePath));
@@ -69,7 +70,7 @@ public class SimpleWikiXmlParser {
             }
 
             if (nodes.size() == SimpleWikiDoc.getWikiChildNodes().size()) {
-                return new SimpleWikiDoc(nodes);
+                return new SimpleWikiDoc<>(nodes);
             }
         }
 
